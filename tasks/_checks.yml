@@ -1,0 +1,14 @@
+---
+- name: "Check, if ansible_os_family '{{ ansible_os_family }}' is supported"
+  assert:
+    that: ansible_os_family in supported_ansible_os_family
+    fail_msg: "ansible_os_family '{{ ansible_os_family }}' is not supported by this role"
+    success_msg: "ansible_os_family '{{ ansible_os_family }}' is supported by this role"
+    quiet: true
+
+- name: "Check, if ansible_distribution '{{ ansible_distribution }}' is supported"
+  assert:
+    that: ansible_distribution in supported_ansible_distribution
+    fail_msg: "ansible_distribution '{{ ansible_distribution }}' is not supported by this role"
+    success_msg: "ansible_distribution '{{ ansible_distribution }}' is supported by this role"
+    quiet: true

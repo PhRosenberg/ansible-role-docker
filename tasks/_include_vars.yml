@@ -1,0 +1,28 @@
+---
+# These are bad workarounds because "skip: true" is deprecated and
+#  errors='ignore' does not work as expected
+# See: https://github.com/ansible/ansible/issues/58942#issuecomment-515501432
+- name: "Include vars for ansible_os_family"
+  include_vars: "{{ family_vars }}"
+  vars:
+    family_vars_:
+      files:
+        - "{{ ansible_os_family }}.yml"
+      paths:
+        - ../vars
+    family_vars: "{{ lookup('first_found', family_vars_, errors='ignore') }}"
+  when:
+    - (family_vars | length > 0)
+
+- name: "Include vars for ansible_distribution"
+  include_vars: "{{ distribution_vars }}"
+  vars:
+    distribution_vars_:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version | int }}.yml"
+        - "{{ ansible_distribution }}.yml"
+      paths:
+        - ../vars
+    distribution_vars: "{{ lookup('first_found', distribution_vars_, errors='ignore') }}"
+  when:
+    - (distribution_vars | length > 0)

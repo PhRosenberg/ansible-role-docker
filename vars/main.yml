@@ -1,0 +1,7 @@
+---
+supported_ansible_distribution:
+  - Amazon
+  - CentOS
+  - Fedora
+supported_ansible_os_family:
+  - RedHat

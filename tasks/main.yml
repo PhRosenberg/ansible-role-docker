@@ -1,0 +1,19 @@
+---
+- name: Include Checks for Prerequisites
+  include_tasks: "_checks.yml"
+
+- name: Include System Specific Variables
+  include_tasks: "_include_vars.yml"
+
+- name: Include Storage Driver
+  include_tasks: "_storage_drivers/{{ docker_storage_driver }}.yml"
+  when: docker_storage_driver is defined
+
+- name: Include Package Installation
+  include_tasks: "_packages.yml"
+
+- name: Include Configuration File Deployment
+  include_tasks: "_config.yml"
+
+- name: Include Docker Registry Login
+  include_tasks: "_registry.yml"

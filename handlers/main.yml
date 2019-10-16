@@ -1,0 +1,11 @@
+---
+- name: Daemon Reload
+  systemd:
+    daemon_reload: true
+  become: true
+
+- name: Restart Docker
+  service:
+    name: "{{ docker_service_name }}"
+    state: restarted
+  become: true

@@ -1,0 +1,11 @@
+---
+extends: default
+
+ignore: |
+  *.encrypted.yml
+  *.encrypted.yaml
+
+rules:
+  line-length: disable
+  new-lines:
+    type: unix

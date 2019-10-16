@@ -1,0 +1,35 @@
+---
+dependency:
+  enabled: false
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+platforms:
+  - name: amazonlinux-2
+    box: stakahashi/amazonlinux2
+    memory: 512
+    cpus: 1
+    provider_options:
+      gui: false
+    provision: true
+  - name: centos-7
+    box: generic/centos7
+    memory: 512
+    cpus: 1
+    provider_options:
+      gui: false
+    provision: true
+provisioner:
+  name: ansible
+  log: true
+  lint:
+    name: ansible-lint
+  playbooks:
+    converge: playbook.yml
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

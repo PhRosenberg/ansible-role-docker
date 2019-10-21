@@ -1,40 +1,51 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role will install docker and optionally docker-compose on a linux system.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+No requirements.
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+| Variable 						| Type   | Description                        | Default
+| ---                           | ---    | ---                                | ---
+| docker_additional_packages    | List   | Prerequisites to be installed      | []
+| docker_ce_package_name        | String | Package name                       | docker
+| docker_ce_repo_name           | String | Repository name                    | docker-ce
+| docker_ce_repo_url            | String | Repository URL                     | https://download.docker.com/linux/centos/docker-ce.repo
+| docker_compose_package_name   | String | Package name for Docker Compose    | "docker-compose"
+| docker_daemon_options 		| Dict   | Docker Daemon options              | { debug: false }
+| docker_install_docker_compose | Bool   | Should Docker Compose be installed | true
+| docker_pip_package_name       | String | pip package name                   | python-pip
+| docker_sdk_package_name       | String | Docker SDK package name            | docker
+| docker_service_enabled        | Bool   | Should Docker service be anbled    | true
+| docker_service_name           | String | Name of Docker service             | docker
+| docker_storage_driver         | String | Storage Driver to use              | overlay2
+| docker_users                  | List   | Users to put in group `docker`     | []
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+No dependencies.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+	- name: Install Docker
+	  hosts: all
+	  roles:
+	    - role: phrosenberg.docker
+	      vars:
+	      	docker_users:
+	      		- alice
+	      		- grace
+	      	docker_daemon_options:
+	      	  debug: false
+	      	  live-restore: true
 
-    - hosts: servers
-      roles:
-         - { role: phrosenberg.docker, x: 42 }
 
 License
 -------
@@ -44,5 +55,5 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+Philip Rosenberg
+philip@rosenberg.dev

@@ -3,4 +3,3 @@
   modprobe:
     name: overlay
     state: present
-  become: true

@@ -6,6 +6,8 @@ ignore: |
   *.encrypted.yaml
 
 rules:
+  braces:
+    max-spaces-inside: 0
+  brackets:
+    max-spaces-inside: 0
   line-length: disable
-  new-lines:
-    type: unix

@@ -6,7 +6,8 @@ This role will install docker and optionally docker-compose on a linux system.
 Requirements
 ------------
 
-No requirements.
+This role needs to be used with `become: true`
+
 
 Role Variables
 --------------
@@ -36,6 +37,7 @@ Example Playbook
 ```yaml
 	- name: Install Docker
 	  hosts: all
+	  become: true
 	  roles:
 	    - role: phrosenberg.docker
 	      vars:

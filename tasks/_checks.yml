@@ -1,4 +1,10 @@
 ---
+- name: "Check, if role is running as 'root'"
+  assert:
+    that: ansible_user_id == "root"
+    fail_msg: "This role needs to be started with 'become: true'"
+    quiet: true
+
 - name: "Check, if ansible_os_family '{{ ansible_os_family }}' is supported"
   assert:
     that: ansible_os_family in supported_ansible_os_family

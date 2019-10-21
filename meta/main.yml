@@ -4,7 +4,7 @@ dependencies: []
 galaxy_info:
   author: PhRosenberg
   description: Install Docker and Docker Compose on Linux
-  license: Apache2
+  license: MIT
   min_ansible_version: 2.8
   role_name: docker
   platforms:

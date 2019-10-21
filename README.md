@@ -33,7 +33,7 @@ No dependencies.
 
 Example Playbook
 ----------------
-
+```yaml
 	- name: Install Docker
 	  hosts: all
 	  roles:
@@ -45,12 +45,12 @@ Example Playbook
 	      	docker_daemon_options:
 	      	  debug: false
 	      	  live-restore: true
-
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------

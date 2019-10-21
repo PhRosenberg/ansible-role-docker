@@ -7,3 +7,4 @@
   when: docker_registry_username is defined
     and docker_registry_password is defined
     and not ansible_check_mode
+  become: true

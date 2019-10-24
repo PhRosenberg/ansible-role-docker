@@ -1,0 +1,17 @@
+---
+- name: Restart Docker (due to change of /etc/docker/daemon.json)  # noqa 503
+  service:
+    name: "{{ docker_service_name }}"
+    state: restarted
+  when: docker_daemon_config.changed
+
+- name: Start Docker Service
+  service:
+    name: "{{ docker_service_name }}"
+    state: started
+  when: docker_service_enabled
+
+- name: Enable Docker Service
+  service:
+    name: "{{ docker_service_name }}"
+    enabled: "{{ docker_service_enabled }}"

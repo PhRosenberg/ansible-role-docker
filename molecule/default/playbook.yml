@@ -3,4 +3,10 @@
   hosts: all
   become: true
   roles:
-    - role: phrosenberg.docker
+    - role: ansible-role-docker
+  vars:
+    docker_daemon_options:
+      debug: false
+      # option selinux-enabled cannot be set at daemon.json
+      # as CentOS already uses it at systemd config file with this option
+      # selinux-enabled: true

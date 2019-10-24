@@ -22,7 +22,7 @@ Role Variables
 | docker_install_docker_compose | Bool   | Should Docker Compose be installed | true
 | docker_pip_package_name       | String | pip package name                   | python-pip
 | docker_sdk_package_name       | String | Docker SDK package name            | docker
-| docker_service_enabled        | Bool   | Should Docker service be anbled    | true
+| docker_service_enabled        | Bool   | Should Docker service be enabled   | true
 | docker_service_name           | String | Name of Docker service             | docker
 | docker_storage_driver         | String | Storage Driver to use              | overlay2
 | docker_users                  | List   | Users to put in group `docker`     | []

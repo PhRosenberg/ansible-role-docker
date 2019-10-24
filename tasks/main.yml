@@ -15,8 +15,10 @@
 - name: Include Configuration File Deployment
   include_tasks: "_config.yml"
 
-- name: Include Docker Registry Login
-  include_tasks: "_registry.yml"
-
 - name: Include Management of Docker Service
   include_tasks: "_service.yml"
+
+# Login requires that the Docker daemon is running
+# => these tasks must be executed after _service.yml
+- name: Include Docker Registry Login
+  include_tasks: "_registry.yml"

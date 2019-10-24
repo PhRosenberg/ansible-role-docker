@@ -10,6 +10,7 @@
     name: "{{ docker_service_name }}"
     state: started
   when: docker_service_enabled
+    or (docker_registry_username and docker_registry_password)
 
 - name: Enable Docker Service
   service:

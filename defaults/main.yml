@@ -4,7 +4,8 @@ docker_ce_package_name: docker
 docker_ce_repo_name: docker-ce
 docker_ce_repo_url: https://download.docker.com/linux/centos/docker-ce.repo
 docker_compose_package_name: "docker-compose"
-docker_daemon_options: { debug: false }
+docker_daemon_options:
+  debug: false
 docker_install_docker_compose: true
 docker_pip_package_name: python-pip
 docker_sdk_package_name: docker

@@ -11,14 +11,14 @@ This role needs to be used with `become: true`
 
 Role Variables
 --------------
-| Variable 						| Type   | Description                        | Default
+| Variable                      | Type   | Description                        | Default
 | ---                           | ---    | ---                                | ---
 | docker_additional_packages    | List   | Prerequisites to be installed      | []
 | docker_ce_package_name        | String | Package name                       | docker
 | docker_ce_repo_name           | String | Repository name                    | docker-ce
 | docker_ce_repo_url            | String | Repository URL                     | https://download.docker.com/linux/centos/docker-ce.repo
 | docker_compose_package_name   | String | Package name for Docker Compose    | "docker-compose"
-| docker_daemon_options 		| Dict   | Docker Daemon options              | { debug: false }
+| docker_daemon_options         | Dict   | Docker Daemon options              | { debug: false }
 | docker_install_docker_compose | Bool   | Should Docker Compose be installed | true
 | docker_pip_package_name       | String | pip package name                   | python-pip
 | docker_sdk_package_name       | String | Docker SDK package name            | docker
@@ -35,18 +35,18 @@ No dependencies.
 Example Playbook
 ----------------
 ```yaml
-	- name: Install Docker
-	  hosts: all
-	  become: true
-	  roles:
-	    - role: phrosenberg.docker
-	      vars:
-	      	docker_users:
-	      		- alice
-	      		- grace
-	      	docker_daemon_options:
-	      	  debug: false
-	      	  live-restore: true
+- name: Install Docker
+  hosts: all
+  become: true
+  roles:
+    - role: phrosenberg.docker
+      vars:
+        docker_users:
+          - alice
+          - grace
+        docker_daemon_options:
+          debug: false
+          live-restore: true
 ```
 
 License

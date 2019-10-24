@@ -1,5 +1,5 @@
-Role Name
-=========
+phrosenberg.docker
+==================
 
 This role will install docker and optionally docker-compose on a linux system.
 

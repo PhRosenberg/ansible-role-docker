@@ -3,7 +3,6 @@
   copy:
     content: "{{ docker_daemon_options | default() | to_nice_json }}"
     dest: /etc/docker/daemon.json
-  when: docker_daemon_options is defined
   notify:
     - Restart Docker
 

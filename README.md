@@ -6,7 +6,7 @@ This role will install docker and optionally docker-compose on a linux system.
 Requirements
 ------------
 
-This role needs to be used with `become: true`
+This role needs to be used with `become: true` and `gather_facts: true`.
 
 
 Role Variables
@@ -26,6 +26,9 @@ Role Variables
 | docker_service_name           | String | Name of Docker service             | docker
 | docker_storage_driver         | String | Storage Driver to use              | overlay2
 | docker_users                  | List   | Users to put in group `docker`     | []
+| docker_registry_username      | String | Username for a Docker Registry     | ""
+| docker_registry_password      | String | Password for a Docker Registry     | ""
+| docker_registry_url           | String | URL of a Docker Registry           | Undefinded (Official Docker Registry is used)
 
 Dependencies
 ------------

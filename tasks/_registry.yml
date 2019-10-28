@@ -4,6 +4,6 @@
     registry: "{{ docker_registry_url | default(omit) }}"
     username: "{{ docker_registry_username }}"
     password: "{{ docker_registry_password }}"
-  when: docker_registry_username is defined
-    and docker_registry_password is defined
+  when: docker_registry_username | length > 0
+    and docker_registry_password | length > 0
     and not ansible_check_mode

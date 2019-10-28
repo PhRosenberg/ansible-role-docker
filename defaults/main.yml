@@ -13,3 +13,5 @@ docker_service_enabled: true
 docker_service_name: docker
 docker_storage_driver: overlay2
 docker_users: []
+docker_registry_username: ""
+docker_registry_password: ""

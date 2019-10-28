@@ -7,11 +7,12 @@ docker_compose_package_name: "docker-compose"
 docker_daemon_options:
   debug: false
 docker_install_docker_compose: true
+docker_package_state: present
 docker_pip_package_name: python-pip
+docker_registry_password: ""
+docker_registry_username: ""
 docker_sdk_package_name: docker
 docker_service_enabled: true
 docker_service_name: docker
 docker_storage_driver: overlay2
 docker_users: []
-docker_registry_username: ""
-docker_registry_password: ""

@@ -2,7 +2,6 @@
 - name: Install Additional Prerequisites
   package:
     name: "{{ item }}"
-    state: latest
   loop: "{{ docker_additional_packages }}"
 
 - name: Deploy Docker CE Repository  # noqa 305
@@ -22,7 +21,7 @@
 - name: Install Docker
   package:
     name: "{{ docker_ce_package_name }}"
-    state: latest
+    state: "{{ docker_package_state }}"
 
 - name: Install Docker Compose
   pip:

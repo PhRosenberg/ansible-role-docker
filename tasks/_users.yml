@@ -1,5 +1,6 @@
 ---
-- getent:
+- name: Get local users
+  getent:
     database: passwd
 
 - name: Ensure group 'docker' exists

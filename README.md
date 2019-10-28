@@ -20,6 +20,7 @@ Role Variables
 | docker_compose_package_name   | String | Package name for Docker Compose    | "docker-compose"
 | docker_daemon_options         | Dict   | Docker Daemon options              | { debug: false }
 | docker_install_docker_compose | Bool   | Should Docker Compose be installed | true
+| docker_package_state          | String | Control state of Docker package    | present
 | docker_pip_package_name       | String | pip package name                   | python-pip
 | docker_sdk_package_name       | String | Docker SDK package name            | docker
 | docker_service_enabled        | Bool   | Should Docker service be enabled   | true

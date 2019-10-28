@@ -1,0 +1,20 @@
+---
+- name: Get list of local users
+  shell: |
+    set -o pipefail
+    getent passwd | cut -d: -f1
+  register: local_users
+  when: docker_users | length > 0
+  changed_when: false
+
+- name: Ensure group 'docker' exists
+  group:
+    name: docker
+
+- name: Add users to group 'docker'
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ docker_users }}"
+  when: item in local_users.stdout_lines

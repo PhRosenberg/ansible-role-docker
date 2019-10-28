@@ -15,6 +15,9 @@
 - name: Include Configuration File Deployment
   include_tasks: "_config.yml"
 
+- name: Include tasks for creating users
+  include_tasks: "_users.yml"
+
 - name: Include Management of Docker Service
   include_tasks: "_service.yml"
 

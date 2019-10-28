@@ -1,11 +1,6 @@
 ---
-- name: Get list of local users
-  shell: |
-    set -o pipefail
-    getent passwd | cut -d: -f1
-  register: local_users
-  when: docker_users | length > 0
-  changed_when: false
+- getent:
+    database: passwd
 
 - name: Ensure group 'docker' exists
   group:
@@ -17,4 +12,4 @@
     groups: docker
     append: true
   loop: "{{ docker_users }}"
-  when: item in local_users.stdout_lines
+  when: item in getent_passwd | flatten(levels=1)

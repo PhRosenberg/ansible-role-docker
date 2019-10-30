@@ -1,20 +1,15 @@
 ---
-- name: "Check, if role is running as 'root'"
+- name: Check, if role is running as 'root'
   assert:
     that: ansible_user_id == "root"
-    fail_msg: "This role needs to be started with 'become: true'"
-    quiet: true
+    msg: "This role needs to be started with 'become: true'"
 
-- name: "Check, if ansible_os_family '{{ ansible_os_family }}' is supported"
+- name: Check, if ansible_os_family '{{ ansible_os_family }}' is supported
   assert:
     that: ansible_os_family in supported_ansible_os_family
-    fail_msg: "ansible_os_family '{{ ansible_os_family }}' is not supported by this role"
-    success_msg: "ansible_os_family '{{ ansible_os_family }}' is supported by this role"
-    quiet: true
+    msg: "ansible_os_family '{{ ansible_os_family }}' is not supported by this role"
 
-- name: "Check, if ansible_distribution '{{ ansible_distribution }}' is supported"
+- name: Check, if ansible_distribution '{{ ansible_distribution }}' is supported
   assert:
     that: ansible_distribution in supported_ansible_distribution
-    fail_msg: "ansible_distribution '{{ ansible_distribution }}' is not supported by this role"
-    success_msg: "ansible_distribution '{{ ansible_distribution }}' is supported by this role"
-    quiet: true
+    msg: "ansible_distribution '{{ ansible_distribution }}' is not supported by this role"

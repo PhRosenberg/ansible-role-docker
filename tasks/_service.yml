@@ -1,5 +1,5 @@
 ---
-- name: Restart Docker (due to change of /etc/docker/daemon.json)  # noqa 503
+- name: Restart Docker  # noqa 503
   service:
     name: "{{ docker_service_name }}"
     state: restarted

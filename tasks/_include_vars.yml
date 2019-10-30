@@ -2,7 +2,7 @@
 # These are bad workarounds because "skip: true" is deprecated and
 #  errors='ignore' does not work as expected
 # See: https://github.com/ansible/ansible/issues/58942#issuecomment-515501432
-- name: "Include vars for ansible_os_family"
+- name: Include vars for ansible_os_family
   include_vars: "{{ family_vars }}"
   vars:
     family_vars_:
@@ -14,7 +14,7 @@
   when:
     - (family_vars | length > 0)
 
-- name: "Include vars for ansible_distribution"
+- name: Include vars for ansible_distribution
   include_vars: "{{ distribution_vars }}"
   vars:
     distribution_vars_:

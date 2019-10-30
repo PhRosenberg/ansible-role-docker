@@ -7,6 +7,13 @@
   group:
     name: docker
 
+- name: Show if users are not present
+  debug:
+    msg: >
+      User '{{ item }}' is not present on target,
+      will not be created or added to group 'docker'
+  loop: "{{ docker_users | difference(getent_passwd | flatten(levels=1)) }}"
+
 - name: Add users to group 'docker'
   user:
     name: "{{ item }}"

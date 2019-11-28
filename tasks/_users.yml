@@ -19,5 +19,6 @@
     name: "{{ item }}"
     groups: docker
     append: true
+  ignore_errors: "{{ ansible_check_mode }}"
   loop: "{{ docker_users }}"
   when: item in getent_passwd | flatten(levels=1)

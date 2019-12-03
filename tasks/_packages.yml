@@ -17,6 +17,7 @@
 - name: Install Docker SDK
   pip:
     name: "{{ docker_sdk_package_name }}"
+  ignore_errors: "{{ ansible_check_mode }}"
 
 - name: Install Docker
   package:
@@ -27,3 +28,4 @@
   pip:
     name: "{{ docker_compose_package_name }}"
   when: docker_install_docker_compose
+  ignore_errors: "{{ ansible_check_mode }}"

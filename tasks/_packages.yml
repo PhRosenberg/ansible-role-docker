@@ -2,7 +2,7 @@
 - name: Install Additional Prerequisites
   package:
     name: "{{ item }}"
-  loop: "{{ docker_additional_packages }}"
+  loop: "{{ (docker_additional_packages + docker_prerequisite_packages) | unique }}"
 
 - name: Deploy Docker CE Repository  # noqa 305
   shell: "dnf config-manager --add-repo={{ docker_ce_repo_url }}"

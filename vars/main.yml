@@ -1,4 +1,6 @@
 ---
+docker_prerequisite_packages:
+  - gcc  # installation of docker-compose requires gcc
 supported_ansible_distribution:
   - Amazon
   - CentOS
